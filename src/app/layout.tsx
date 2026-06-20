@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { personalInfo } from '@/lib/data';
 
-const inter = Inter({
+const geist = Geist({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
@@ -28,6 +28,8 @@ export const metadata: Metadata = {
     'react',
     'typescript',
     'portafolio',
+    'frontend',
+    'backend',
   ],
   authors: [{ name: personalInfo.name }],
   creator: personalInfo.name,
@@ -96,14 +98,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={inter.variable}>
-      <body className="flex flex-col min-h-screen font-sans">
+    <html lang="es" className={geist.variable}>
+      <body className="flex flex-col min-h-screen font-sans antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Header />
-        <main className="grow bg-gray-50">{children}</main>
+        <main className="grow">{children}</main>
         <Footer />
       </body>
     </html>
